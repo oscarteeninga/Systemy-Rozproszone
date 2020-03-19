@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"> <title>Weather analyzer</title> </head>
+<body>
+<form action="http://localhost:8080/web/rest/weather" method="POST">
+    <label for="city">City</label>
+    <input name="city" />
+    <br/>
+    <label for="begin">Begin</label>
+    <input type="date" name="begin" />
+    <br/>
+    <label for="end">End</label>
+    <input type="date" name="end" />
+    <br/>
+    <input type="submit" value="Submit" />
+</form>
+<a href="http://localhost:8080/web/rest/weather">
+    Go to results! ->>>
+</a>
+</body>
+</html>
