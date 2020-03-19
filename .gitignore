@@ -1,0 +1,4 @@
+*.class
+*.pdf
+*.tar
+.DS_Store
