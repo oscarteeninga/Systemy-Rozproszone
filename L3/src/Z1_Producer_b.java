@@ -5,7 +5,7 @@ import com.rabbitmq.client.ConnectionFactory;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
-public class Z1_Producer {
+public class Z1_Producer_b {
 
     public static void main(String[] argv) throws Exception {
 
@@ -27,6 +27,12 @@ public class Z1_Producer {
         // producer (publish msg)
         String message = "";
 
+        int []tab = {1, 5, 1, 5, 1, 5, 1, 5, 1, 5};
+        for (int i = 0; i < tab.length; i++) {
+            message = String.valueOf(tab[i]);
+            channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+            System.out.println("Sent: " + tab[i]);
+        }
 
         while (!message.equals("q")) {
             message = br.readLine();

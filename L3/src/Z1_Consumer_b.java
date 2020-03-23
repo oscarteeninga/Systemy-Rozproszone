@@ -1,13 +1,8 @@
-import com.rabbitmq.client.AMQP;
-import com.rabbitmq.client.Channel;
-import com.rabbitmq.client.Connection;
-import com.rabbitmq.client.ConnectionFactory;
-import com.rabbitmq.client.Consumer;
-import com.rabbitmq.client.DefaultConsumer;
-import com.rabbitmq.client.Envelope;
+import com.rabbitmq.client.*;
+
 import java.io.IOException;
 
-public class Z1_Consumer {
+public class Z1_Consumer_b {
 
     public static void main(String[] argv) throws Exception {
 
@@ -44,7 +39,6 @@ public class Z1_Consumer {
 
         // start listening
         System.out.println("Waiting for messages...");
-        //channel.basicConsume(QUEUE_NAME, true, consumer);
         channel.basicConsume(QUEUE_NAME, false, consumer);
 
         // close

@@ -1,3 +1,5 @@
 *.class
 *.pdf
 .DS_Store
+*.jpg
+*.png
