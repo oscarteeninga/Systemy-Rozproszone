@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="slf4j-api-1.6.2-javadoc">
+    <CLASSES />
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/lab_rabbitmq/slf4j-api-1.6.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
