@@ -20,7 +20,6 @@ public class Z1_Consumer {
         Connection connection = factory.newConnection();
         Channel channel = connection.createChannel();
 
-
         // queue
         String QUEUE_NAME = "queue1";
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
