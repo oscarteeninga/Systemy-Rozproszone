@@ -33,6 +33,7 @@ public interface Fridge extends Switch
     static final String[] _iceIds =
     {
         "::Ice::Object",
+        "::Smart::Device",
         "::Smart::Fridge",
         "::Smart::Switch"
     };
@@ -158,7 +159,9 @@ public interface Fridge extends Switch
     {
         "change",
         "getCondition",
+        "getHelp",
         "getHumidity",
+        "getName",
         "getPhoto",
         "getTemp",
         "ice_id",
@@ -195,49 +198,57 @@ public interface Fridge extends Switch
             }
             case 2:
             {
-                return _iceD_getHumidity(this, in, current);
+                return Device._iceD_getHelp(this, in, current);
             }
             case 3:
             {
-                return _iceD_getPhoto(this, in, current);
+                return _iceD_getHumidity(this, in, current);
             }
             case 4:
             {
-                return _iceD_getTemp(this, in, current);
+                return Device._iceD_getName(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return _iceD_getPhoto(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return _iceD_getTemp(this, in, current);
             }
             case 7:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 8:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 9:
             {
-                return Switch._iceD_off(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 10:
             {
-                return Switch._iceD_on(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 11:
             {
-                return Switch._iceD_setCondition(this, in, current);
+                return Switch._iceD_off(this, in, current);
             }
             case 12:
             {
-                return _iceD_setHumidity(this, in, current);
+                return Switch._iceD_on(this, in, current);
             }
             case 13:
+            {
+                return Switch._iceD_setCondition(this, in, current);
+            }
+            case 14:
+            {
+                return _iceD_setHumidity(this, in, current);
+            }
+            case 15:
             {
                 return _iceD_setTemp(this, in, current);
             }

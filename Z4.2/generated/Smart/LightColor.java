@@ -15,16 +15,17 @@
 
 package Smart;
 
-public interface LedStripColor extends LightColor
+public interface LightColor extends Light
 {
-    void setSegmentCondition(condition[] conditions, com.zeroc.Ice.Current current)
-        throws BadArgument;
+    void setColor(color color, com.zeroc.Ice.Current current);
+
+    color getColor(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
     {
         "::Ice::Object",
-        "::Smart::LedStripColor",
+        "::Smart::Device",
         "::Smart::Light",
         "::Smart::LightColor",
         "::Smart::Switch"
@@ -44,7 +45,7 @@ public interface LedStripColor extends LightColor
 
     static String ice_staticId()
     {
-        return "::Smart::LedStripColor";
+        return "::Smart::LightColor";
     }
 
     /**
@@ -53,27 +54,46 @@ public interface LedStripColor extends LightColor
      * @param inS -
      * @param current -
      * @return -
-     * @throws com.zeroc.Ice.UserException -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_setSegmentCondition(LedStripColor obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_setColor(LightColor obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        condition[] iceP_conditions;
-        iceP_conditions = seqOfConditionsHelper.read(istr);
+        color iceP_color;
+        iceP_color = color.ice_read(istr);
         inS.endReadParams();
-        obj.setSegmentCondition(iceP_conditions, current);
+        obj.setColor(iceP_color, current);
         return inS.setResult(inS.writeEmptyParams());
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getColor(LightColor obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        inS.readEmptyParams();
+        color ret = obj.getColor(current);
+        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        color.ice_write(ostr, ret);
+        inS.endWriteParams(ostr);
+        return inS.setResult(ostr);
     }
 
     /** @hidden */
     final static String[] _iceOps =
     {
         "change",
+        "getBrightness",
         "getColor",
         "getCondition",
+        "getHelp",
         "getMode",
+        "getName",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -83,8 +103,7 @@ public interface LedStripColor extends LightColor
         "setBrightness",
         "setColor",
         "setCondition",
-        "setMode",
-        "setSegmentCondition"
+        "setMode"
     };
 
     /** @hidden */
@@ -106,59 +125,67 @@ public interface LedStripColor extends LightColor
             }
             case 1:
             {
-                return LightColor._iceD_getColor(this, in, current);
+                return Light._iceD_getBrightness(this, in, current);
             }
             case 2:
             {
-                return Switch._iceD_getCondition(this, in, current);
+                return _iceD_getColor(this, in, current);
             }
             case 3:
             {
-                return Light._iceD_getMode(this, in, current);
+                return Switch._iceD_getCondition(this, in, current);
             }
             case 4:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return Device._iceD_getHelp(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return Light._iceD_getMode(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return Device._iceD_getName(this, in, current);
             }
             case 7:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 8:
             {
-                return Switch._iceD_off(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 9:
             {
-                return Switch._iceD_on(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 10:
             {
-                return Light._iceD_setBrightness(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 11:
             {
-                return LightColor._iceD_setColor(this, in, current);
+                return Switch._iceD_off(this, in, current);
             }
             case 12:
             {
-                return Switch._iceD_setCondition(this, in, current);
+                return Switch._iceD_on(this, in, current);
             }
             case 13:
             {
-                return Light._iceD_setMode(this, in, current);
+                return Light._iceD_setBrightness(this, in, current);
             }
             case 14:
             {
-                return _iceD_setSegmentCondition(this, in, current);
+                return _iceD_setColor(this, in, current);
+            }
+            case 15:
+            {
+                return Switch._iceD_setCondition(this, in, current);
+            }
+            case 16:
+            {
+                return Light._iceD_setMode(this, in, current);
             }
         }
 

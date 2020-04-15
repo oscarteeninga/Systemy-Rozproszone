@@ -17,8 +17,8 @@ package Smart;
 
 public enum condition implements java.io.Serializable
 {
-    ON(0),
-    OFF(1);
+    OFF(0),
+    ON(1);
 
     public int value()
     {
@@ -30,9 +30,9 @@ public enum condition implements java.io.Serializable
         switch(v)
         {
         case 0:
-            return ON;
-        case 1:
             return OFF;
+        case 1:
+            return ON;
         }
         return null;
     }
@@ -51,7 +51,7 @@ public enum condition implements java.io.Serializable
     {
         if(v == null)
         {
-            ostr.writeEnum(Smart.condition.ON.value(), 1);
+            ostr.writeEnum(Smart.condition.OFF.value(), 1);
         }
         else
         {

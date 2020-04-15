@@ -20,6 +20,8 @@ public interface Light extends Switch
     void setBrightness(int brightness, com.zeroc.Ice.Current current)
         throws UnreachableArgument;
 
+    int getBrightness(com.zeroc.Ice.Current current);
+
     void setMode(mode mode, com.zeroc.Ice.Current current);
 
     mode getMode(com.zeroc.Ice.Current current);
@@ -28,6 +30,7 @@ public interface Light extends Switch
     static final String[] _iceIds =
     {
         "::Ice::Object",
+        "::Smart::Device",
         "::Smart::Light",
         "::Smart::Switch"
     };
@@ -76,6 +79,24 @@ public interface Light extends Switch
      * @param current -
      * @return -
     **/
+    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getBrightness(Light obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
+    {
+        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
+        inS.readEmptyParams();
+        int ret = obj.getBrightness(current);
+        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
+        ostr.writeInt(ret);
+        inS.endWriteParams(ostr);
+        return inS.setResult(ostr);
+    }
+
+    /**
+     * @hidden
+     * @param obj -
+     * @param inS -
+     * @param current -
+     * @return -
+    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_setMode(Light obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -109,8 +130,11 @@ public interface Light extends Switch
     final static String[] _iceOps =
     {
         "change",
+        "getBrightness",
         "getCondition",
+        "getHelp",
         "getMode",
+        "getName",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -141,45 +165,57 @@ public interface Light extends Switch
             }
             case 1:
             {
-                return Switch._iceD_getCondition(this, in, current);
+                return _iceD_getBrightness(this, in, current);
             }
             case 2:
             {
-                return _iceD_getMode(this, in, current);
+                return Switch._iceD_getCondition(this, in, current);
             }
             case 3:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return Device._iceD_getHelp(this, in, current);
             }
             case 4:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return _iceD_getMode(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return Device._iceD_getName(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 7:
             {
-                return Switch._iceD_off(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 8:
             {
-                return Switch._iceD_on(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 9:
             {
-                return _iceD_setBrightness(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 10:
             {
-                return Switch._iceD_setCondition(this, in, current);
+                return Switch._iceD_off(this, in, current);
             }
             case 11:
+            {
+                return Switch._iceD_on(this, in, current);
+            }
+            case 12:
+            {
+                return _iceD_setBrightness(this, in, current);
+            }
+            case 13:
+            {
+                return Switch._iceD_setCondition(this, in, current);
+            }
+            case 14:
             {
                 return _iceD_setMode(this, in, current);
             }

@@ -12,7 +12,8 @@ public class FridgeI extends SwitchI implements Fridge {
     private float kelvinDegrees;
     private int humidity;
 
-    public FridgeI() {
+    public FridgeI(String name) {
+        super(name);
         this.kelvinDegrees = 280.0f;
         this.humidity = 50;
     }

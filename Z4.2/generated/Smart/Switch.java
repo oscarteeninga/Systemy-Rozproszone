@@ -15,7 +15,7 @@
 
 package Smart;
 
-public interface Switch extends com.zeroc.Ice.Object
+public interface Switch extends Device
 {
     void on(com.zeroc.Ice.Current current);
 
@@ -31,6 +31,7 @@ public interface Switch extends com.zeroc.Ice.Object
     static final String[] _iceIds =
     {
         "::Ice::Object",
+        "::Smart::Device",
         "::Smart::Switch"
     };
 
@@ -140,6 +141,8 @@ public interface Switch extends com.zeroc.Ice.Object
     {
         "change",
         "getCondition",
+        "getHelp",
+        "getName",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -172,29 +175,37 @@ public interface Switch extends com.zeroc.Ice.Object
             }
             case 2:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return Device._iceD_getHelp(this, in, current);
             }
             case 3:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return Device._iceD_getName(this, in, current);
             }
             case 4:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 6:
             {
-                return _iceD_off(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 7:
             {
-                return _iceD_on(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 8:
+            {
+                return _iceD_off(this, in, current);
+            }
+            case 9:
+            {
+                return _iceD_on(this, in, current);
+            }
+            case 10:
             {
                 return _iceD_setCondition(this, in, current);
             }

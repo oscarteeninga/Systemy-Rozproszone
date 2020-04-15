@@ -4,21 +4,37 @@ import Smart.Switch;
 import Smart.condition;
 import com.zeroc.Ice.Current;
 
-public class SwitchI implements Switch {
+public class SwitchI extends DeviceI implements Switch {
 
-    private condition condition;
+    protected condition condition;
 
-    public SwitchI() {
+    public SwitchI(String name) {
+        super(name);
         this.condition = condition.OFF;
     }
 
     @Override
+    public String getHelp(Current current) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("=========Switch=========\n");
+        sb.append("1. on\n");
+        sb.append("2. off\n");
+        sb.append("3. change\n");
+        sb.append("4. setCondition.on/off\n");
+        sb.append("5. getCondition\n");
+        sb.append("========================");
+        return sb.toString();
+    }
+
+    @Override
     public void on(Current current) {
+        System.out.println("ON");
         this.condition = condition.ON;
     }
 
     @Override
     public void off(Current current) {
+        System.out.println("OFF");
         this.condition = condition.OFF;
     }
 
@@ -30,9 +46,9 @@ public class SwitchI implements Switch {
     @Override
     public condition change(Current current) {
         if (this.condition.equals(condition.OFF)) {
-            this.condition = condition.ON;
+            on(current);
         } else {
-            this.condition = condition.OFF;
+            off(current);
         }
         return this.condition;
     }

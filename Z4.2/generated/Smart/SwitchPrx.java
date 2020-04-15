@@ -15,117 +15,128 @@
 
 package Smart;
 
-public interface LightPrx extends SwitchPrx
+public interface SwitchPrx extends DevicePrx
 {
-    default void setBrightness(int brightness)
-        throws UnreachableArgument
+    default void on()
     {
-        setBrightness(brightness, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        on(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void setBrightness(int brightness, java.util.Map<String, String> context)
-        throws UnreachableArgument
+    default void on(java.util.Map<String, String> context)
     {
-        try
-        {
-            _iceI_setBrightnessAsync(brightness, context, true).waitForResponseOrUserEx();
-        }
-        catch(UnreachableArgument ex)
-        {
-            throw ex;
-        }
-        catch(com.zeroc.Ice.UserException ex)
-        {
-            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
-        }
+        _iceI_onAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> setBrightnessAsync(int brightness)
+    default java.util.concurrent.CompletableFuture<Void> onAsync()
     {
-        return _iceI_setBrightnessAsync(brightness, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_onAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> setBrightnessAsync(int brightness, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> onAsync(java.util.Map<String, String> context)
     {
-        return _iceI_setBrightnessAsync(brightness, context, false);
+        return _iceI_onAsync(context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_brightness -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setBrightnessAsync(int iceP_brightness, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_onAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setBrightness", null, sync, _iceE_setBrightness);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeInt(iceP_brightness);
-                 }, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "on", null, sync, null);
+        f.invoke(false, context, null, null, null);
         return f;
     }
 
-    /** @hidden */
-    static final Class<?>[] _iceE_setBrightness =
+    default void off()
     {
-        UnreachableArgument.class
-    };
-
-    default void setMode(mode mode)
-    {
-        setMode(mode, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        off(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default void setMode(mode mode, java.util.Map<String, String> context)
+    default void off(java.util.Map<String, String> context)
     {
-        _iceI_setModeAsync(mode, context, true).waitForResponse();
+        _iceI_offAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<Void> setModeAsync(mode mode)
+    default java.util.concurrent.CompletableFuture<Void> offAsync()
     {
-        return _iceI_setModeAsync(mode, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_offAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<Void> setModeAsync(mode mode, java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<Void> offAsync(java.util.Map<String, String> context)
     {
-        return _iceI_setModeAsync(mode, context, false);
+        return _iceI_offAsync(context, false);
     }
 
     /**
      * @hidden
-     * @param iceP_mode -
      * @param context -
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setModeAsync(mode iceP_mode, java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_offAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setMode", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "off", null, sync, null);
+        f.invoke(false, context, null, null, null);
+        return f;
+    }
+
+    default void setCondition(condition op)
+    {
+        setCondition(op, com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default void setCondition(condition op, java.util.Map<String, String> context)
+    {
+        _iceI_setConditionAsync(op, context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> setConditionAsync(condition op)
+    {
+        return _iceI_setConditionAsync(op, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<Void> setConditionAsync(condition op, java.util.Map<String, String> context)
+    {
+        return _iceI_setConditionAsync(op, context, false);
+    }
+
+    /**
+     * @hidden
+     * @param iceP_op -
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_setConditionAsync(condition iceP_op, java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "setCondition", null, sync, null);
         f.invoke(false, context, null, ostr -> {
-                     mode.ice_write(ostr, iceP_mode);
+                     condition.ice_write(ostr, iceP_op);
                  }, null);
         return f;
     }
 
-    default mode getMode()
+    default condition change()
     {
-        return getMode(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+        return change(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default mode getMode(java.util.Map<String, String> context)
+    default condition change(java.util.Map<String, String> context)
     {
-        return _iceI_getModeAsync(context, true).waitForResponse();
+        return _iceI_changeAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<mode> getModeAsync()
+    default java.util.concurrent.CompletableFuture<condition> changeAsync()
     {
-        return _iceI_getModeAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+        return _iceI_changeAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<mode> getModeAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<condition> changeAsync(java.util.Map<String, String> context)
     {
-        return _iceI_getModeAsync(context, false);
+        return _iceI_changeAsync(context, false);
     }
 
     /**
@@ -134,12 +145,49 @@ public interface LightPrx extends SwitchPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<mode> _iceI_getModeAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<condition> _iceI_changeAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<mode> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getMode", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<condition> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "change", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     mode ret;
-                     ret = mode.ice_read(istr);
+                     condition ret;
+                     ret = condition.ice_read(istr);
+                     return ret;
+                 });
+        return f;
+    }
+
+    default condition getCondition()
+    {
+        return getCondition(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default condition getCondition(java.util.Map<String, String> context)
+    {
+        return _iceI_getConditionAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<condition> getConditionAsync()
+    {
+        return _iceI_getConditionAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<condition> getConditionAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getConditionAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<condition> _iceI_getConditionAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<condition> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getCondition", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     condition ret;
+                     ret = condition.ice_read(istr);
                      return ret;
                  });
         return f;
@@ -151,9 +199,9 @@ public interface LightPrx extends SwitchPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LightPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
+    static SwitchPrx checkedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), LightPrx.class, _LightPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, ice_staticId(), SwitchPrx.class, _SwitchPrxI.class);
     }
 
     /**
@@ -163,9 +211,9 @@ public interface LightPrx extends SwitchPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LightPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
+    static SwitchPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), LightPrx.class, _LightPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, context, ice_staticId(), SwitchPrx.class, _SwitchPrxI.class);
     }
 
     /**
@@ -175,9 +223,9 @@ public interface LightPrx extends SwitchPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LightPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static SwitchPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), LightPrx.class, _LightPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, ice_staticId(), SwitchPrx.class, _SwitchPrxI.class);
     }
 
     /**
@@ -188,9 +236,9 @@ public interface LightPrx extends SwitchPrx
      * @param context The Context map to send with the invocation.
      * @return A proxy for this type, or null if the object does not support this type.
      **/
-    static LightPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
+    static SwitchPrx checkedCast(com.zeroc.Ice.ObjectPrx obj, String facet, java.util.Map<String, String> context)
     {
-        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), LightPrx.class, _LightPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._checkedCast(obj, facet, context, ice_staticId(), SwitchPrx.class, _SwitchPrxI.class);
     }
 
     /**
@@ -198,9 +246,9 @@ public interface LightPrx extends SwitchPrx
      * @param obj The untyped proxy.
      * @return A proxy for this type.
      **/
-    static LightPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
+    static SwitchPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, LightPrx.class, _LightPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, SwitchPrx.class, _SwitchPrxI.class);
     }
 
     /**
@@ -209,9 +257,9 @@ public interface LightPrx extends SwitchPrx
      * @param facet The name of the desired facet.
      * @return A proxy for this type.
      **/
-    static LightPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
+    static SwitchPrx uncheckedCast(com.zeroc.Ice.ObjectPrx obj, String facet)
     {
-        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, LightPrx.class, _LightPrxI.class);
+        return com.zeroc.Ice.ObjectPrx._uncheckedCast(obj, facet, SwitchPrx.class, _SwitchPrxI.class);
     }
 
     /**
@@ -220,9 +268,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified per-proxy context.
      **/
     @Override
-    default LightPrx ice_context(java.util.Map<String, String> newContext)
+    default SwitchPrx ice_context(java.util.Map<String, String> newContext)
     {
-        return (LightPrx)_ice_context(newContext);
+        return (SwitchPrx)_ice_context(newContext);
     }
 
     /**
@@ -231,9 +279,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified adapter ID.
      **/
     @Override
-    default LightPrx ice_adapterId(String newAdapterId)
+    default SwitchPrx ice_adapterId(String newAdapterId)
     {
-        return (LightPrx)_ice_adapterId(newAdapterId);
+        return (SwitchPrx)_ice_adapterId(newAdapterId);
     }
 
     /**
@@ -242,9 +290,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified endpoints.
      **/
     @Override
-    default LightPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
+    default SwitchPrx ice_endpoints(com.zeroc.Ice.Endpoint[] newEndpoints)
     {
-        return (LightPrx)_ice_endpoints(newEndpoints);
+        return (SwitchPrx)_ice_endpoints(newEndpoints);
     }
 
     /**
@@ -253,9 +301,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified locator cache timeout.
      **/
     @Override
-    default LightPrx ice_locatorCacheTimeout(int newTimeout)
+    default SwitchPrx ice_locatorCacheTimeout(int newTimeout)
     {
-        return (LightPrx)_ice_locatorCacheTimeout(newTimeout);
+        return (SwitchPrx)_ice_locatorCacheTimeout(newTimeout);
     }
 
     /**
@@ -264,9 +312,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified invocation timeout.
      **/
     @Override
-    default LightPrx ice_invocationTimeout(int newTimeout)
+    default SwitchPrx ice_invocationTimeout(int newTimeout)
     {
-        return (LightPrx)_ice_invocationTimeout(newTimeout);
+        return (SwitchPrx)_ice_invocationTimeout(newTimeout);
     }
 
     /**
@@ -275,9 +323,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified caching policy.
      **/
     @Override
-    default LightPrx ice_connectionCached(boolean newCache)
+    default SwitchPrx ice_connectionCached(boolean newCache)
     {
-        return (LightPrx)_ice_connectionCached(newCache);
+        return (SwitchPrx)_ice_connectionCached(newCache);
     }
 
     /**
@@ -286,9 +334,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified endpoint selection policy.
      **/
     @Override
-    default LightPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
+    default SwitchPrx ice_endpointSelection(com.zeroc.Ice.EndpointSelectionType newType)
     {
-        return (LightPrx)_ice_endpointSelection(newType);
+        return (SwitchPrx)_ice_endpointSelection(newType);
     }
 
     /**
@@ -299,9 +347,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default LightPrx ice_secure(boolean b)
+    default SwitchPrx ice_secure(boolean b)
     {
-        return (LightPrx)_ice_secure(b);
+        return (SwitchPrx)_ice_secure(b);
     }
 
     /**
@@ -310,9 +358,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified encoding version.
      **/
     @Override
-    default LightPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
+    default SwitchPrx ice_encodingVersion(com.zeroc.Ice.EncodingVersion e)
     {
-        return (LightPrx)_ice_encodingVersion(e);
+        return (SwitchPrx)_ice_encodingVersion(e);
     }
 
     /**
@@ -323,9 +371,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified selection policy.
      **/
     @Override
-    default LightPrx ice_preferSecure(boolean b)
+    default SwitchPrx ice_preferSecure(boolean b)
     {
-        return (LightPrx)_ice_preferSecure(b);
+        return (SwitchPrx)_ice_preferSecure(b);
     }
 
     /**
@@ -334,9 +382,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified router.
      **/
     @Override
-    default LightPrx ice_router(com.zeroc.Ice.RouterPrx router)
+    default SwitchPrx ice_router(com.zeroc.Ice.RouterPrx router)
     {
-        return (LightPrx)_ice_router(router);
+        return (SwitchPrx)_ice_router(router);
     }
 
     /**
@@ -345,9 +393,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified locator.
      **/
     @Override
-    default LightPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
+    default SwitchPrx ice_locator(com.zeroc.Ice.LocatorPrx locator)
     {
-        return (LightPrx)_ice_locator(locator);
+        return (SwitchPrx)_ice_locator(locator);
     }
 
     /**
@@ -356,9 +404,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified collocation optimization.
      **/
     @Override
-    default LightPrx ice_collocationOptimized(boolean b)
+    default SwitchPrx ice_collocationOptimized(boolean b)
     {
-        return (LightPrx)_ice_collocationOptimized(b);
+        return (SwitchPrx)_ice_collocationOptimized(b);
     }
 
     /**
@@ -366,9 +414,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy that uses twoway invocations.
      **/
     @Override
-    default LightPrx ice_twoway()
+    default SwitchPrx ice_twoway()
     {
-        return (LightPrx)_ice_twoway();
+        return (SwitchPrx)_ice_twoway();
     }
 
     /**
@@ -376,9 +424,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy that uses oneway invocations.
      **/
     @Override
-    default LightPrx ice_oneway()
+    default SwitchPrx ice_oneway()
     {
-        return (LightPrx)_ice_oneway();
+        return (SwitchPrx)_ice_oneway();
     }
 
     /**
@@ -386,9 +434,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy that uses batch oneway invocations.
      **/
     @Override
-    default LightPrx ice_batchOneway()
+    default SwitchPrx ice_batchOneway()
     {
-        return (LightPrx)_ice_batchOneway();
+        return (SwitchPrx)_ice_batchOneway();
     }
 
     /**
@@ -396,9 +444,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy that uses datagram invocations.
      **/
     @Override
-    default LightPrx ice_datagram()
+    default SwitchPrx ice_datagram()
     {
-        return (LightPrx)_ice_datagram();
+        return (SwitchPrx)_ice_datagram();
     }
 
     /**
@@ -406,9 +454,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy that uses batch datagram invocations.
      **/
     @Override
-    default LightPrx ice_batchDatagram()
+    default SwitchPrx ice_batchDatagram()
     {
-        return (LightPrx)_ice_batchDatagram();
+        return (SwitchPrx)_ice_batchDatagram();
     }
 
     /**
@@ -417,9 +465,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified compression setting.
      **/
     @Override
-    default LightPrx ice_compress(boolean co)
+    default SwitchPrx ice_compress(boolean co)
     {
-        return (LightPrx)_ice_compress(co);
+        return (SwitchPrx)_ice_compress(co);
     }
 
     /**
@@ -428,9 +476,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified timeout.
      **/
     @Override
-    default LightPrx ice_timeout(int t)
+    default SwitchPrx ice_timeout(int t)
     {
-        return (LightPrx)_ice_timeout(t);
+        return (SwitchPrx)_ice_timeout(t);
     }
 
     /**
@@ -439,9 +487,9 @@ public interface LightPrx extends SwitchPrx
      * @return A proxy with the specified connection ID.
      **/
     @Override
-    default LightPrx ice_connectionId(String connectionId)
+    default SwitchPrx ice_connectionId(String connectionId)
     {
-        return (LightPrx)_ice_connectionId(connectionId);
+        return (SwitchPrx)_ice_connectionId(connectionId);
     }
 
     /**
@@ -450,13 +498,13 @@ public interface LightPrx extends SwitchPrx
      * @return A fixed proxy bound to the given connection.
      **/
     @Override
-    default LightPrx ice_fixed(com.zeroc.Ice.Connection connection)
+    default SwitchPrx ice_fixed(com.zeroc.Ice.Connection connection)
     {
-        return (LightPrx)_ice_fixed(connection);
+        return (SwitchPrx)_ice_fixed(connection);
     }
 
     static String ice_staticId()
     {
-        return "::Smart::Light";
+        return "::Smart::Switch";
     }
 }
