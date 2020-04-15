@@ -15,14 +15,11 @@ module Smart
   exception BadArgument {};
   exception UnreachableArgument {};
 
-
-
   interface Device {
     string getHelp();
     string getName();
     type getType();
   };
-
 
   interface DeviceList {
      devices getList();

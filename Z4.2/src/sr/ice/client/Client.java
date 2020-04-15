@@ -136,6 +136,7 @@ public class Client {
 
 	static private void showHelp() {
 		System.out.println("===========help==========");
+		System.out.println("Always use num, not names!");
 		System.out.println("Conditions:");
 		showValues(condition.values());
 		System.out.println("Modes:");
