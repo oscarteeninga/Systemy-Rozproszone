@@ -17,7 +17,7 @@ public class LightColorI extends LightI implements LightColor {
     @Override
     public String getHelp(Current current) {
         StringBuilder sb = new StringBuilder();
-        sb.append("=========Light=========\n");
+        sb.append("=======LightColor=======\n");
         sb.append("1. on\n");
         sb.append("2. off\n");
         sb.append("3. change\n");

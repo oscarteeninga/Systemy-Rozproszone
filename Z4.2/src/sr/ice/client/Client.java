@@ -22,14 +22,11 @@ public class Client {
 			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 			while(true) {
+				showHelp();
 				String[] names = showDevices(communicator);
 				System.out.print("==> ");
 				line = in.readLine();
-				if (line.equals("list")) {
-					names = showDevices(communicator);
-					System.out.print("==> ");
-					continue;
-				}
+
 				ObjectPrx base = null;
 				for (int i = 0; i < names.length; i++) {
 					if (names[i].equals(line)) {
@@ -37,7 +34,15 @@ public class Client {
 						break;
 					}
 				}
-				if (base == null) {
+				if (line.equals("list")) {
+					names = showDevices(communicator);
+					System.out.print("==> ");
+					continue;
+				} else if (line.equals("quit")) {
+					break;
+				} else if (line.equals("help")) {
+					showHelp();
+				} else if (base == null) {
 					System.out.println("Device not found!");
 				} else {
 					execute(base, in);
@@ -81,9 +86,7 @@ public class Client {
 				while (true) {
 					System.out.print("==> ");
 					String[] cmd = in.readLine().split("\\.");
-					if (cmd[0].equals("quit")) {
-						break;
-					}
+					if (cmd[0].equals("quit")) break;
 					evaluateSwitch(obj1, cmd);
 				}
 				break;
@@ -93,9 +96,7 @@ public class Client {
 				while (true) {
 					System.out.print("==> ");
 					String[] cmd = in.readLine().split("\\.");
-					if (cmd[0].equals("quit")) {
-						break;
-					}
+					if (cmd[0].equals("quit")) break;
 					evaluateLight(obj2, cmd);
 				}
 				break;
@@ -105,9 +106,7 @@ public class Client {
 				while (true) {
 					System.out.print("==> ");
 					String[] cmd = in.readLine().split("\\.");
-					if (cmd[0].equals("quit")) {
-						break;
-					}
+					if (cmd[0].equals("quit")) break;
 					evaluateLightColor(obj3, cmd);
 				}
 				break;
@@ -117,17 +116,43 @@ public class Client {
 				while (true) {
 					System.out.print("==> ");
 					String[] cmd = in.readLine().split("\\.");
-					if (cmd[0].equals("quit")) {
-						break;
-					}
+					if (cmd[0].equals("quit")) break;
 					evaluateStrip(obj4, cmd);
 				}
 				break;
 			case FRIDGE:
-				System.out.println("Not ready!");
+				FridgePrx obj5 = FridgePrx.checkedCast(base);
+				System.out.println(obj5.getHelp());
+				while (true) {
+					System.out.print("==> ");
+					String []cmd = in.readLine().split("\\.");
+					if (cmd[0].equals("quit")) break;
+					evaluateFridge(obj5, cmd);
+				}
 				break;
 			default:
 		}
+	}
+
+	static private void showHelp() {
+		System.out.println("===========help==========");
+		System.out.println("Conditions:");
+		showValues(condition.values());
+		System.out.println("Modes:");
+		showValues(mode.values());
+		System.out.println("Colors:");
+		showValues(color.values());
+		System.out.println("Units:");
+		showValues(unit.values());
+		System.out.println("=========================");
+
+	}
+
+	static private void showValues(Enum[] values) {
+		for (int i = 0; i < values.length; i++) {
+			System.out.print(values[i] + "(" + i + ") ");
+		}
+		System.out.println();
 	}
 
 	static private void evaluateSwitch(SwitchPrx obj, String []cmd) {
@@ -148,7 +173,7 @@ public class Client {
 				System.out.println(obj.getCondition());
 				break;
 			default:
-				System.out.println("Unkown command");
+				System.out.println("Unknown command");
 		}
 	}
 
@@ -188,8 +213,6 @@ public class Client {
 		}
 	}
 
-
-
 	static private void evaluateLightColor(LightColorPrx obj, String []cmd) {
 		switch (Integer.valueOf(cmd[0])) {
 			case 1:
@@ -226,7 +249,7 @@ public class Client {
 				obj.setColor(color);
 				break;
 			case 10:
-				System.out.println("Color: " + obj.getColor());
+				System.out.println(obj.getColor());
 				break;
 			default:
 				System.out.println("Unknown command");
@@ -269,7 +292,7 @@ public class Client {
 				obj.setColor(color);
 				break;
 			case 10:
-				System.out.println("Color: " + obj.getColor());
+				System.out.println(obj.getColor());
 				break;
 			case 11:
 				condition []conditions = new condition[cmd.length-1];
@@ -284,6 +307,59 @@ public class Client {
 				break;
 			default:
 				System.out.println("Unkown command");
+		}
+	}
+
+	private static void evaluateFridge(FridgePrx obj, String[] cmd) {
+		switch (Integer.valueOf(cmd[0])) {
+			case 1:
+				obj.on();
+				break;
+			case 2:
+				obj.off();
+				break;
+			case 3:
+				obj.change();
+				break;
+			case 4:
+				obj.setCondition(condition.valueOf(Integer.valueOf(cmd[1])));
+				break;
+			case 5:
+				obj.getCondition();
+				break;
+			case 6:
+				try {
+					obj.setTemp(Float.valueOf(cmd[1]), unit.valueOf(Integer.valueOf(cmd[2])));
+				} catch (UnreachableArgument e) {
+					e.printStackTrace();
+				} finally {
+					break;
+				}
+			case 7:
+				System.out.println(obj.getTemp(unit.valueOf(Integer.valueOf(cmd[1]))) + " " + unit.valueOf(Integer.valueOf(cmd[1])));
+			case 8:
+				try {
+					obj.setHumidity(Integer.valueOf(cmd[1]));
+				} catch (UnreachableArgument e) {
+					e.printStackTrace();
+				} finally {
+					break;
+				}
+			case 9:
+				System.out.println(obj.getHumidity());
+				break;
+			case 10:
+				byte []photo = obj.getPhoto();
+				int N = (int) Math.sqrt(photo.length);
+				for (int i = 0; i < N; i++) {
+					for (int j = 0; j < N; j++) {
+						System.out.print(Integer.toHexString(Math.abs(photo[i*N + j]) % 16) + " ");
+					}
+					System.out.println();
+				}
+				break;
+			default:
+				System.out.println("Unknown command");
 		}
 	}
 }

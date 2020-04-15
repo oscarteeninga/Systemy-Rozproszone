@@ -20,6 +20,24 @@ public class FridgeI extends SwitchI implements Fridge {
     }
 
     @Override
+    public String getHelp(Current current) {
+        StringBuilder sb = new StringBuilder();
+        sb.append("=========Fridge=========\n");
+        sb.append("1. on\n");
+        sb.append("2. off\n");
+        sb.append("3. change\n");
+        sb.append("4. setCondition.<on/off>\n");
+        sb.append("5. getCondition\n");
+        sb.append("6. setTemp.<value>.<unit>\n");
+        sb.append("7. getTemp\n");
+        sb.append("8. setHumidity,<value>\n");
+        sb.append("9. getHumidity\n");
+        sb.append("10. getPhoto\n");
+        sb.append("========================");
+        return sb.toString();
+    }
+
+    @Override
     public void setTemp(float degrees, unit unit, Current current) throws UnreachableArgument {
         float newTemp;
         switch (unit) {

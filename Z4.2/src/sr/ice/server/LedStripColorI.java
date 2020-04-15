@@ -21,7 +21,7 @@ public class LedStripColorI extends LightColorI implements LedStripColor {
     @Override
     public String getHelp(Current current) {
         StringBuilder sb = new StringBuilder();
-        sb.append("=========Light=========\n");
+        sb.append("=========Strip=========\n");
         sb.append("1. on\n");
         sb.append("2. off\n");
         sb.append("3. change\n");
