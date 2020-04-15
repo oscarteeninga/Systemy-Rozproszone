@@ -164,6 +164,7 @@ public interface Fridge extends Switch
         "getName",
         "getPhoto",
         "getTemp",
+        "getType",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -218,37 +219,41 @@ public interface Fridge extends Switch
             }
             case 7:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return Device._iceD_getType(this, in, current);
             }
             case 8:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 9:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 10:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 11:
             {
-                return Switch._iceD_off(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 12:
             {
-                return Switch._iceD_on(this, in, current);
+                return Switch._iceD_off(this, in, current);
             }
             case 13:
             {
-                return Switch._iceD_setCondition(this, in, current);
+                return Switch._iceD_on(this, in, current);
             }
             case 14:
             {
-                return _iceD_setHumidity(this, in, current);
+                return Switch._iceD_setCondition(this, in, current);
             }
             case 15:
+            {
+                return _iceD_setHumidity(this, in, current);
+            }
+            case 16:
             {
                 return _iceD_setTemp(this, in, current);
             }

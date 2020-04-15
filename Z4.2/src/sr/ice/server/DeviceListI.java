@@ -13,11 +13,11 @@ public class DeviceListI implements DeviceList {
     }
 
     @Override
-    public String getList(Current current) {
-        StringBuilder sb = new StringBuilder();
+    public String[] getList(Current current) {
+        String []names = new String[devices.length];
         for (int i = 0; i < devices.length; i++) {
-            sb.append(devices[i].getName(current) + "\n");
+            names[i] = devices[i].getName(current);
         }
-        return sb.toString();
+        return names;
     }
 }

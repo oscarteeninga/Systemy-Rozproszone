@@ -2,6 +2,7 @@ package sr.ice.server;
 
 import Smart.Fridge;
 import Smart.UnreachableArgument;
+import Smart.type;
 import Smart.unit;
 import com.zeroc.Ice.Current;
 
@@ -12,8 +13,8 @@ public class FridgeI extends SwitchI implements Fridge {
     private float kelvinDegrees;
     private int humidity;
 
-    public FridgeI(String name) {
-        super(name);
+    public FridgeI(String name, type type) {
+        super(name, type);
         this.kelvinDegrees = 280.0f;
         this.humidity = 50;
     }

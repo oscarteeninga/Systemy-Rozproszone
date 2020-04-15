@@ -91,6 +91,43 @@ public interface DevicePrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
+    default type getType()
+    {
+        return getType(com.zeroc.Ice.ObjectPrx.noExplicitContext);
+    }
+
+    default type getType(java.util.Map<String, String> context)
+    {
+        return _iceI_getTypeAsync(context, true).waitForResponse();
+    }
+
+    default java.util.concurrent.CompletableFuture<type> getTypeAsync()
+    {
+        return _iceI_getTypeAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
+    }
+
+    default java.util.concurrent.CompletableFuture<type> getTypeAsync(java.util.Map<String, String> context)
+    {
+        return _iceI_getTypeAsync(context, false);
+    }
+
+    /**
+     * @hidden
+     * @param context -
+     * @param sync -
+     * @return -
+     **/
+    default com.zeroc.IceInternal.OutgoingAsync<type> _iceI_getTypeAsync(java.util.Map<String, String> context, boolean sync)
+    {
+        com.zeroc.IceInternal.OutgoingAsync<type> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getType", null, sync, null);
+        f.invoke(true, context, null, null, istr -> {
+                     type ret;
+                     ret = type.ice_read(istr);
+                     return ret;
+                 });
+        return f;
+    }
+
     /**
      * Contacts the remote server to verify that the object implements this type.
      * Raises a local exception if a communication error occurs.

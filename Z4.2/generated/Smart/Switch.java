@@ -143,6 +143,7 @@ public interface Switch extends Device
         "getCondition",
         "getHelp",
         "getName",
+        "getType",
         "ice_id",
         "ice_ids",
         "ice_isA",
@@ -183,29 +184,33 @@ public interface Switch extends Device
             }
             case 4:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
+                return Device._iceD_getType(this, in, current);
             }
             case 5:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 7:
             {
-                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
             case 8:
             {
-                return _iceD_off(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
             case 9:
             {
-                return _iceD_on(this, in, current);
+                return _iceD_off(this, in, current);
             }
             case 10:
+            {
+                return _iceD_on(this, in, current);
+            }
+            case 11:
             {
                 return _iceD_setCondition(this, in, current);
             }

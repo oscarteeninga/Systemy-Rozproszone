@@ -3,6 +3,7 @@ package sr.ice.server;
 import Smart.Light;
 import Smart.UnreachableArgument;
 import Smart.mode;
+import Smart.type;
 import com.zeroc.Ice.Current;
 
 public class LightI extends SwitchI implements Light {
@@ -10,8 +11,8 @@ public class LightI extends SwitchI implements Light {
     protected int brightness;
     protected mode mode;
 
-    public LightI(String name) {
-        super(name);
+    public LightI(String name, type type) {
+        super(name, type);
         this.brightness = 100;
     }
 
@@ -36,6 +37,7 @@ public class LightI extends SwitchI implements Light {
         if (brightness > 100 || brightness < 0) {
             throw new UnreachableArgument();
         }
+        System.out.println(this.name + " set brightness " + brightness);
         this.brightness = brightness;
     }
 
@@ -46,6 +48,7 @@ public class LightI extends SwitchI implements Light {
 
     @Override
     public void setMode(mode mode, Current current) {
+        System.out.println(this.name + " set mode " + mode.toString());
         this.mode = mode;
     }
 

@@ -2,14 +2,15 @@ package sr.ice.server;
 
 import Smart.Switch;
 import Smart.condition;
+import Smart.type;
 import com.zeroc.Ice.Current;
 
 public class SwitchI extends DeviceI implements Switch {
 
     protected condition condition;
 
-    public SwitchI(String name) {
-        super(name);
+    public SwitchI(String name, type type) {
+        super(name, type);
         this.condition = condition.OFF;
     }
 
@@ -28,18 +29,19 @@ public class SwitchI extends DeviceI implements Switch {
 
     @Override
     public void on(Current current) {
-        System.out.println("ON");
+        System.out.println(this.name + " switched on");
         this.condition = condition.ON;
     }
 
     @Override
     public void off(Current current) {
-        System.out.println("OFF");
+        System.out.println(this.name + " switched off");
         this.condition = condition.OFF;
     }
 
     @Override
     public void setCondition(condition condition, Current current) {
+        System.out.println(this.name + " set " + condition.toString());
         this.condition = condition;
     }
 

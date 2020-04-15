@@ -2,14 +2,15 @@ package sr.ice.server;
 
 import Smart.LightColor;
 import Smart.color;
+import Smart.type;
 import com.zeroc.Ice.Current;
 
 public class LightColorI extends LightI implements LightColor {
 
     protected color color;
 
-    public LightColorI(String name) {
-        super(name);
+    public LightColorI(String name, type type) {
+        super(name, type);
         this.color = Smart.color.WHITE;
     }
 
@@ -33,6 +34,7 @@ public class LightColorI extends LightI implements LightColor {
 
     @Override
     public void setColor(color color, Current current) {
+        System.out.println(this.name + " set color " + color.toString());
         this.color = color;
     }
 

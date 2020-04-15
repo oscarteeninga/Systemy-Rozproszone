@@ -17,7 +17,7 @@ package Smart;
 
 public interface DeviceList extends com.zeroc.Ice.Object
 {
-    String getList(com.zeroc.Ice.Current current);
+    String[] getList(com.zeroc.Ice.Current current);
 
     /** @hidden */
     static final String[] _iceIds =
@@ -54,9 +54,9 @@ public interface DeviceList extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         inS.readEmptyParams();
-        String ret = obj.getList(current);
+        String[] ret = obj.getList(current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeString(ret);
+        ostr.writeStringSeq(ret);
         inS.endWriteParams(ostr);
         return inS.setResult(ostr);
     }

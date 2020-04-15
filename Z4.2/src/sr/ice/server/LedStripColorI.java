@@ -3,14 +3,15 @@ package sr.ice.server;
 import Smart.BadArgument;
 import Smart.LedStripColor;
 import Smart.condition;
+import Smart.type;
 import com.zeroc.Ice.Current;
 
 public class LedStripColorI extends LightColorI implements LedStripColor {
 
     protected condition[] segments;
 
-    public LedStripColorI(String name, int length) {
-        super(name);
+    public LedStripColorI(String name, type type, int length) {
+        super(name, type);
         this.segments = new condition[length];
         for (int i = 0; i < length; i++) {
             this.segments[i] = condition.ON;
@@ -37,10 +38,15 @@ public class LedStripColorI extends LightColorI implements LedStripColor {
     }
 
     @Override
-    public void setSegmentCondition(Smart.condition[] conditions, Current current) throws BadArgument {
+    public void setSegmentCondition(condition[] conditions, Current current) throws BadArgument {
         if (segments.length != conditions.length) {
             throw new BadArgument();
         }
+        System.out.print(this.name + " set conditions: ");
+        for (int i = 0; i < conditions.length; i++) {
+            System.out.print(conditions[i].toString() + "/");
+        }
+        System.out.println();
         this.segments = conditions;
     }
 }

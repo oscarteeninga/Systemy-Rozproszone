@@ -7,6 +7,9 @@ import com.zeroc.Ice.Util;
 import com.zeroc.Ice.ObjectPrx;
 import com.zeroc.Ice.LocalException;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 public class Client {
 	public static void main(String[] args) {
 		int status = 0;
@@ -16,94 +19,28 @@ public class Client {
 			// 1. Inicjalizacja ICE
 			communicator = Util.initialize(args);
 			String line = null;
-			java.io.BufferedReader in = new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
+			BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
 			while(true) {
-				showDevices(communicator);
+				String[] names = showDevices(communicator);
 				System.out.print("==> ");
 				line = in.readLine();
-				if (line.equals("switch1")) {
-					ObjectPrx base = communicator.stringToProxy("switch/1:tcp -h localhost -p 10000");
-					SwitchPrx obj = SwitchPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateSwitch(obj, cmd);
+				if (line.equals("list")) {
+					names = showDevices(communicator);
+					System.out.print("==> ");
+					continue;
+				}
+				ObjectPrx base = null;
+				for (int i = 0; i < names.length; i++) {
+					if (names[i].equals(line)) {
+						base = communicator.stringToProxy("device/" + line + ":tcp -h localhost -p 10000");
+						break;
 					}
-				} else if (line.equals("switch2")) {
-					ObjectPrx base = communicator.stringToProxy("switch/2:tcp -h localhost -p 10000");
-					SwitchPrx obj = SwitchPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateSwitch(obj, cmd);
-					}
-				} else if (line.equals("switch3")) {
-					ObjectPrx base = communicator.stringToProxy("switch/3:tcp -h localhost -p 10000");
-					SwitchPrx obj = SwitchPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateSwitch(obj, cmd);
-					}
-				} else if (line.equals("light1")) {
-					ObjectPrx base = communicator.stringToProxy("light/1:tcp -h localhost -p 10000");
-					LightPrx obj = LightPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateLight(obj, cmd);
-					}
-				} else if (line.equals("light2")) {
-					ObjectPrx base = communicator.stringToProxy("light/2:tcp -h localhost -p 10000");
-					LightPrx obj = LightPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateLight(obj, cmd);
-					}
-				} else if (line.equals("strip2")) {
-					ObjectPrx base = communicator.stringToProxy("strip/2:tcp -h localhost -p 10000");
-					LedStripColorPrx obj = LedStripColorPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateStrip(obj, cmd);
-					}
-				} else if (line.equals("strip5")) {
-					ObjectPrx base = communicator.stringToProxy("strip/5:tcp -h localhost -p 10000");
-					LedStripColorPrx obj = LedStripColorPrx.checkedCast(base);
-					if (obj == null) throw new Error("Invalid proxy");
-					System.out.println(obj.getHelp());
-					while (true) {
-						System.out.print("==> ");
-						String[] cmd = in.readLine().split("\\.");
-						if (cmd[0].equals("quit")) break;
-						evaluateStrip(obj, cmd);
-					}
-				} else if (line.equals("quit")) {
-					System.out.println("Quiting...");
-					break;
-				} else {
+				}
+				if (base == null) {
 					System.out.println("Device not found!");
+				} else {
+					execute(base, in);
 				}
 			}
 		} catch (LocalException e) {
@@ -114,8 +51,6 @@ public class Client {
 			status = 1;
 		}
 		if (communicator != null) {
-			// Clean up
-			//
 			try {
 				communicator.destroy();
 			} catch (Exception e) {
@@ -126,12 +61,73 @@ public class Client {
 		System.exit(status);
 	}
 
-	static private void showDevices(Communicator communicator) {
+	static private String[] showDevices(Communicator communicator) {
 		System.out.println("=========Devices=========");
 		ObjectPrx base = communicator.stringToProxy("devices/list:tcp -h localhost -p 10000");
 		DeviceListPrx obj = DeviceListPrx.checkedCast(base);
-		System.out.print(obj.getList());
+		String []names = obj.getList();
+		for (int i = 0; i < names.length; i++) {
+			System.out.println(names[i]);
+		}
 		System.out.println("=========================");
+		return names;
+	}
+
+	static private void execute(ObjectPrx base, BufferedReader in) throws Exception {
+		switch (DevicePrx.checkedCast(base).getType()) {
+			case SWITCH:
+				SwitchPrx obj1 = SwitchPrx.checkedCast(base);
+				System.out.println(obj1.getHelp());
+				while (true) {
+					System.out.print("==> ");
+					String[] cmd = in.readLine().split("\\.");
+					if (cmd[0].equals("quit")) {
+						break;
+					}
+					evaluateSwitch(obj1, cmd);
+				}
+				break;
+			case LIGHT:
+				LightPrx obj2 = LightPrx.checkedCast(base);
+				System.out.println(obj2.getHelp());
+				while (true) {
+					System.out.print("==> ");
+					String[] cmd = in.readLine().split("\\.");
+					if (cmd[0].equals("quit")) {
+						break;
+					}
+					evaluateLight(obj2, cmd);
+				}
+				break;
+			case LIGHTCOLOR:
+				LightColorPrx obj3 = LightColorPrx.checkedCast(base);
+				System.out.println(obj3.getHelp());
+				while (true) {
+					System.out.print("==> ");
+					String[] cmd = in.readLine().split("\\.");
+					if (cmd[0].equals("quit")) {
+						break;
+					}
+					evaluateLightColor(obj3, cmd);
+				}
+				break;
+			case STRIP:
+				LedStripColorPrx obj4 = LedStripColorPrx.checkedCast(base);
+				System.out.println(obj4.getHelp());
+				while (true) {
+					System.out.print("==> ");
+					String[] cmd = in.readLine().split("\\.");
+					if (cmd[0].equals("quit")) {
+						break;
+					}
+					evaluateStrip(obj4, cmd);
+				}
+				break;
+			case FRIDGE:
+				System.out.println("Not ready!");
+				break;
+			default:
+		}
 	}
 
 	static private void evaluateSwitch(SwitchPrx obj, String []cmd) {
@@ -191,6 +187,8 @@ public class Client {
 				System.out.println("Unknown command");
 		}
 	}
+
+
 
 	static private void evaluateLightColor(LightColorPrx obj, String []cmd) {
 		switch (Integer.valueOf(cmd[0])) {

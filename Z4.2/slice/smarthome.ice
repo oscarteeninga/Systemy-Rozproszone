@@ -7,19 +7,25 @@ module Smart
   enum unit { CELSIUS, FAHRENHEIT, KELVIN };
   enum mode { CONST, FLASHING, PULSING };
   enum color { WHITE, YELLOW, ORANGE, PINK, RED, GREEN, BLUE, VIOLET, BROWN, GREY };
+  enum type { SWITCH, LIGHT, LIGHTCOLOR, STRIP, FRIDGE };
   sequence <condition> seqOfConditions;
   sequence <byte> photo;
+  sequence <string> devices;
 
   exception BadArgument {};
   exception UnreachableArgument {};
 
-  interface DeviceList {
-    string getList();
-  };
+
 
   interface Device {
     string getHelp();
     string getName();
+    type getType();
+  };
+
+
+  interface DeviceList {
+     devices getList();
   };
 
   interface Switch extends Device {

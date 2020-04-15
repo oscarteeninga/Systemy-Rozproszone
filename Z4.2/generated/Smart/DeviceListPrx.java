@@ -17,22 +17,22 @@ package Smart;
 
 public interface DeviceListPrx extends com.zeroc.Ice.ObjectPrx
 {
-    default String getList()
+    default String[] getList()
     {
         return getList(com.zeroc.Ice.ObjectPrx.noExplicitContext);
     }
 
-    default String getList(java.util.Map<String, String> context)
+    default String[] getList(java.util.Map<String, String> context)
     {
         return _iceI_getListAsync(context, true).waitForResponse();
     }
 
-    default java.util.concurrent.CompletableFuture<java.lang.String> getListAsync()
+    default java.util.concurrent.CompletableFuture<String[]> getListAsync()
     {
         return _iceI_getListAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
     }
 
-    default java.util.concurrent.CompletableFuture<java.lang.String> getListAsync(java.util.Map<String, String> context)
+    default java.util.concurrent.CompletableFuture<String[]> getListAsync(java.util.Map<String, String> context)
     {
         return _iceI_getListAsync(context, false);
     }
@@ -43,12 +43,12 @@ public interface DeviceListPrx extends com.zeroc.Ice.ObjectPrx
      * @param sync -
      * @return -
      **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getListAsync(java.util.Map<String, String> context, boolean sync)
+    default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getListAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getList", null, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getList", null, sync, null);
         f.invoke(true, context, null, null, istr -> {
-                     String ret;
-                     ret = istr.readString();
+                     String[] ret;
+                     ret = istr.readStringSeq();
                      return ret;
                  });
         return f;
