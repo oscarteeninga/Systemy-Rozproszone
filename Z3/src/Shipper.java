@@ -43,7 +43,7 @@ public class Shipper {
 
         // exchange admin topic
         String EXCHANGE_ADMIN = "exchange_admin";
-        channel.exchangeDeclare(EXCHANGE_AGENCY, BuiltinExchangeType.TOPIC);
+        channel.exchangeDeclare(EXCHANGE_ADMIN, BuiltinExchangeType.TOPIC);
 
         // exchange shipper topic
         String EXCHANGE_SHIPPER = "exchange_shipper";
