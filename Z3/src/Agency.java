@@ -55,7 +55,7 @@ public class Agency {
 
             // KEY: (people/stuff/sat)
             String key = str_message[0];
-            // MESSAGE: (all/shipper/agent).<to_whom>.<from_whom>.<date>.<message>
+            // MESSAGE: (people/stuff/sat).<to_whom>.<from_whom>.<date>.<message>
             String message = str_message[0] + ".unknown." + id + "." + new Date().toString() + "." + str_message[1];
 
             // break condition
