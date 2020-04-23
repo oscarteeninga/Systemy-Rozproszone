@@ -5,24 +5,64 @@ import weather_pb2_grpc as Weather_grpc
 import time
 import datetime
 import threading
+import random
+
+
+class Forecaster():
+    def __init__(self, city, weather):
+        self.city = city
+        self.weather = weather
+
+    def getForecast(self):
+        return Weather.Forecast(
+            datetime=str(datetime.datetime.now()).split('.')[0], 
+            city=self.city, 
+            weather=[self.weather]
+            )
+
+    def updateWeather(self, weather):
+        self.weather = weather
+
+
+def getWeather():
+    return Weather.Weather(
+        temperature=int((random.random()-0.3) * 30),
+        humindity=int(random.random() * 50) + 20,
+        cloudity=Weather.CLOUDY,
+        wind=Weather.Wind(
+            speed=int(random.random()*30),
+            direction=Weather.NORTH
+        ))
+
+
+def genForecasters():
+    global cities
+    forecasters = {}
+    for city in cities:
+        forecasters[city] = Forecaster(city, getWeather())
+    return forecasters
+
 
 class Listener(Weather_grpc.WeatherServiceServicer):
-    def __init__(self, server):
+    def __init__(self, server, forecasters):
         self.server = server
+        self.forecasters = forecasters
 
     def subscribe(self, request, context):
-        addListener(self.server)
+        addListener(self.server, self.forecasters)
         while True:
-            yield getForecast(request.city)
+            yield self.forecasters[request.city].getForecast()
             time.sleep(request.frequency)
 
-def addListener(server):
-    print("New subscrible!")
-    Weather_grpc.add_WeatherServiceServicer_to_server(Listener(server), server)
 
-def serve():
+def addListener(server, forecasters):
+    print("New subscrible!")
+    Weather_grpc.add_WeatherServiceServicer_to_server(Listener(server, forecasters), server)
+
+
+def serve(forecasters):
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=1000))
-    Weather_grpc.add_WeatherServiceServicer_to_server(Listener(server), server)
+    Weather_grpc.add_WeatherServiceServicer_to_server(Listener(server, forecasters), server)
     server.add_insecure_port("[::]:9999")
     server.start()
     try:
@@ -33,22 +73,17 @@ def serve():
         print("KeyboardInterrupt")
         server.stop(0)
 
-def getForecast(city):
-    return Weather.Forecast(
-        datetime=str(datetime.datetime.now()).split('.')[0], 
-        city=city, 
-        weather=[getWeather()]
-        )
 
-def getWeather():
-    return Weather.Weather(
-        temperature=10,
-        humindity=45,
-        cloudity=Weather.CLOUDY,
-        wind=Weather.Wind(
-            speed=21,
-            direction=Weather.NORTH
-        ))
+def updateForecasts(forecasters):
+    while True:
+        for forecaster in forecasters:
+            forecasters[forecaster].updateWeather(getWeather())
+        time.sleep(5)
+
+
+cities = ["Amsterdam", "London", "Warsaw"]
+forecasters = genForecasters()
 
 if __name__ == "__main__":
-    serve()
+    threading.Thread(target=serve, args=(forecasters, )).start()
+    threading.Thread(target=updateForecasts, args=(forecasters, )).start()
