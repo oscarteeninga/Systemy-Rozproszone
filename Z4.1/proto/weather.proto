@@ -36,8 +36,12 @@ message Forecast {
 
 message SubscribeRequest {
     string city = 1;
+    int32 frequency = 2;
 }
 
 service WeatherService {
     rpc subscribe(SubscribeRequest) returns (stream Forecast) {}
 }
+
+// proto compiling
+// python3 -m grpc_tools.protoc -I./proto --python_out=. --grpc_python_out=. ./proto/weather.proto
