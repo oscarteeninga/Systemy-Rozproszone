@@ -3,6 +3,7 @@ import weather_pb2_grpc as Weather_grpc
 import time
 import grpc
 import threading
+from sys import argv
 
 def showForecast(forecast):
     print("=== " + forecast.city + " " + forecast.datetime + " ===")
@@ -28,8 +29,9 @@ def run(channel, city, frequency):
         try:
             response = stub.subscribe(Weather.SubscribeRequest(city=city, frequency=frequency))
             for forecast in response:
-                if forecast is None:
-                    break
+                if forecast.city == "Nocity":
+                    print(city + " not able :(")
+                    return
                 showForecast(forecast)
         except KeyboardInterrupt:
             print("KeyboardInterrupt")
@@ -44,8 +46,9 @@ def close(channel):
 
 if __name__ == "__main__":
     channel = grpc.insecure_channel("localhost:9999")
-    thread1 = threading.Thread(target=run, args=(channel, "Amsterdam", 1, ))
-    thread2 = threading.Thread(target=run, args=(channel, "London", 5, ))
-    thread1.start()
-    time.sleep(0.1)
-    thread2.start()
+    for arg in argv[1:]:
+        city = arg.split(".")[0]
+        frequency = int(arg.split(".")[1])
+        print("Connecting to city: " + city + " frequency " + str(frequency))
+        threading.Thread(target=run, args=(channel, city, frequency, )).start()
+        time.sleep(0.1)

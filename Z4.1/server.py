@@ -49,14 +49,19 @@ class Listener(Weather_grpc.WeatherServiceServicer):
         self.forecasters = forecasters
 
     def subscribe(self, request, context):
-        addListener(self.server, self.forecasters)
+        if not (request.city in forecasters) or request.city == "Nocity":
+            print("No city: " + request.city)
+            yield self.forecasters["Nocity"].getForecast()
+            return
+        
+        addListener(self.server, self.forecasters, request.city)
         while True:
             yield self.forecasters[request.city].getForecast()
             time.sleep(request.frequency)
 
 
-def addListener(server, forecasters):
-    print("New subscrible!")
+def addListener(server, forecasters, city):
+    print("New subscrible on " + city + "!")
     Weather_grpc.add_WeatherServiceServicer_to_server(Listener(server, forecasters), server)
 
 
@@ -81,7 +86,7 @@ def updateForecasts(forecasters):
         time.sleep(5)
 
 
-cities = ["Amsterdam", "London", "Warsaw"]
+cities = ["Amsterdam", "London", "Warsaw", "Nocity"]
 forecasters = genForecasters()
 
 if __name__ == "__main__":
