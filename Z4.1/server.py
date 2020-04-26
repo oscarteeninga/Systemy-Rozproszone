@@ -48,6 +48,7 @@ class Listener(Weather_grpc.WeatherServiceServicer):
         self.server = server
         self.forecasters = forecasters
 
+
     def subscribe(self, request, context):
         if not (request.city in forecasters) or request.city == "Nocity":
             print("No city: " + request.city)
@@ -73,7 +74,7 @@ def serve(forecasters):
     try:
         while True:
             print("Server on: thread", threading.active_count())
-            time.sleep(60)
+            time.sleep(5)
     except KeyboardInterrupt:
         print("KeyboardInterrupt")
         server.stop(0)

@@ -30,7 +30,7 @@ public class FridgeI extends SwitchI implements Fridge {
         sb.append("5. getCondition\n");
         sb.append("6. setTemp.<value>.<unit>\n");
         sb.append("7. getTemp\n");
-        sb.append("8. setHumidity,<value>\n");
+        sb.append("8. setHumidity.<value>\n");
         sb.append("9. getHumidity\n");
         sb.append("10. getPhoto\n");
         sb.append("========================");

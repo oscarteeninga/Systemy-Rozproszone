@@ -168,6 +168,9 @@ public class Client {
 				obj.change();
 				break;
 			case 4:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				obj.setCondition(condition.valueOf(Integer.valueOf(cmd[1])));
 				break;
 			case 5:
@@ -190,12 +193,18 @@ public class Client {
 				obj.change();
 				break;
 			case 4:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				obj.setCondition(condition.valueOf(Integer.valueOf(cmd[1])));
 				break;
 			case 5:
 				obj.getCondition();
 				break;
 			case 6:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				try {
 					obj.setBrightness(Integer.valueOf(cmd[1]));
 				} catch (UnreachableArgument e) {
@@ -203,6 +212,9 @@ public class Client {
 				}
 				break;
 			case 7:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				mode mode = Smart.mode.valueOf(Integer.valueOf(cmd[1]));
 				obj.setMode(mode);
 				break;
@@ -226,12 +238,18 @@ public class Client {
 				obj.change();
 				break;
 			case 4:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				obj.setCondition(condition.valueOf(Integer.valueOf(cmd[1])));
 				break;
 			case 5:
 				obj.getCondition();
 				break;
 			case 6:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				try {
 					obj.setBrightness(Integer.valueOf(cmd[1]));
 				} catch (UnreachableArgument e) {
@@ -239,6 +257,9 @@ public class Client {
 				}
 				break;
 			case 7:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				mode mode = Smart.mode.valueOf(Integer.valueOf(cmd[1]));
 				obj.setMode(mode);
 				break;
@@ -246,6 +267,9 @@ public class Client {
 				System.out.println(obj.getMode());
 				break;
 			case 9:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				color color = Smart.color.valueOf(Integer.valueOf(cmd[1]));
 				obj.setColor(color);
 				break;
@@ -269,12 +293,18 @@ public class Client {
 				obj.change();
 				break;
 			case 4:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				obj.setCondition(condition.valueOf(Integer.valueOf(cmd[1])));
 				break;
 			case 5:
 				obj.getCondition();
 				break;
 			case 6:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				try {
 					obj.setBrightness(Integer.valueOf(cmd[1]));
 				} catch (UnreachableArgument e) {
@@ -282,6 +312,9 @@ public class Client {
 				}
 				break;
 			case 7:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				mode mode = Smart.mode.valueOf(Integer.valueOf(cmd[1]));
 				obj.setMode(mode);
 				break;
@@ -323,12 +356,18 @@ public class Client {
 				obj.change();
 				break;
 			case 4:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				obj.setCondition(condition.valueOf(Integer.valueOf(cmd[1])));
 				break;
 			case 5:
 				obj.getCondition();
 				break;
 			case 6:
+				if (cmd.length < 3) {
+					System.out.println("Miss argument");
+				}
 				try {
 					obj.setTemp(Float.valueOf(cmd[1]), unit.valueOf(Integer.valueOf(cmd[2])));
 				} catch (UnreachableArgument e) {
@@ -337,8 +376,14 @@ public class Client {
 					break;
 				}
 			case 7:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				System.out.println(obj.getTemp(unit.valueOf(Integer.valueOf(cmd[1]))) + " " + unit.valueOf(Integer.valueOf(cmd[1])));
 			case 8:
+				if (cmd.length < 2) {
+					System.out.println("Miss argument");
+				}
 				try {
 					obj.setHumidity(Integer.valueOf(cmd[1]));
 				} catch (UnreachableArgument e) {
