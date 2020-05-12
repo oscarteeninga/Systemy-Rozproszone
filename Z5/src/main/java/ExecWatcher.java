@@ -11,15 +11,14 @@ public class ExecWatcher implements Watcher {
     ZooKeeper zk;
 
     public ExecWatcher(ZooKeeper zk, Executor executor, String znode) throws KeeperException, InterruptedException {
+        this.zk = zk;
         this.executor = executor;
         this.childWatcher = new ChildWatcher(zk, executor, znode);
         this.znode = znode;
-        this.zk = zk;
     }
 
     public void process(WatchedEvent event) {
         try {
-            System.out.println(event.getType());
             switch (event.getType()) {
                 case NodeCreated:
                     zk.getChildren(znode, childWatcher);

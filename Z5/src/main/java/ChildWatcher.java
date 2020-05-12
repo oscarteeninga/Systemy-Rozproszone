@@ -6,7 +6,6 @@ import static org.apache.zookeeper.Watcher.Event.EventType.NodeChildrenChanged;
 
 import java.util.List;
 
-
 public class ChildWatcher implements Watcher {
 
     Executor executor;

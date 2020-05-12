@@ -31,8 +31,13 @@ public class Runner {
             System.err.println("USAGE: Executor hostPort znode filename program [args ...]");
             System.exit(2);
         }
+
         String hostPort = args[0];
         String znode = args[1];
+
+        if (args.length > 2) {
+            exec = args[2];
+        }
 
         try {
             Executor executor = new Executor(znode, exec);
@@ -42,9 +47,7 @@ public class Runner {
             Scanner reader = new Scanner(System.in);
             while (true) {
                 reader.nextLine();
-                System.out.println("=== CHILDREN ===");
                 executor.showChildrenTree(znode, zk);
-                System.out.println("================");
             }
         } catch (Exception e) {
             e.printStackTrace();

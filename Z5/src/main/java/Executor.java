@@ -17,14 +17,13 @@ public class Executor {
     }
 
     public void showChildrenTree(String znode, ZooKeeper zk) {
-        if (!nodes.equals(getChildrenList(znode, zk))) {
-            System.out.println("=== CHILDREN ===");
-            for (String node : getChildrenList(znode, zk)) {
-                System.out.println(node);
-            }
-            System.out.println("COUNT: " + getChildrenList(znode, zk).size());
-            System.out.println("================");
+        System.out.println("=== CHILDREN ===");
+        for (String node : getChildrenList(znode, zk)) {
+            System.out.println(node);
         }
+        System.out.println("COUNT: " + getChildrenList(znode, zk).size());
+        System.out.println("================");
+        nodes = getChildrenList(znode, zk);
     }
 
     public List<String> getChildrenList(String znode, ZooKeeper zk) {
