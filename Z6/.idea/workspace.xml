@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f00f4d8d-aed8-4de0-b484-2b5998a06e16" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../L6/AkkaLab/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z1_DivideWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z1_MathActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z1_MultiplyWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z2_AppLocal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z2_AppRemote.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z2_LocalActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z2_RemoteActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Teeninga_Oscar_akka_lab/Z3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../L6/AkkaLab/Z3.java" beforeDir="false" afterPath="$PROJECT_DIR$/../L6/AkkaLab/Z3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Z5/src/main/java/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Z5/src/main/java/Runner.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bmMKXgxASxUzN8vrNlk66FJfLw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager" selected="Application.Z3">
+    <configuration name="Z1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Z1" />
+      <module name="AkkaLab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Z2_AppLocal" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Z2_AppLocal" />
+      <module name="AkkaLab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Z2_AppRemote" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Z2_AppRemote" />
+      <module name="AkkaLab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Z2_LocalActor" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Z2_LocalActor" />
+      <module name="AkkaLab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Z3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Z3" />
+      <module name="AkkaLab" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Z3" />
+        <item itemvalue="Application.Z2_AppLocal" />
+        <item itemvalue="Application.Z2_AppRemote" />
+        <item itemvalue="Application.Z2_LocalActor" />
+        <item itemvalue="Application.Z1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f00f4d8d-aed8-4de0-b484-2b5998a06e16" name="Default Changelist" comment="" />
+      <created>1589232751601</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1589232751601</updated>
+      <workItem from="1589232754152" duration="9283000" />
+      <workItem from="1589651427753" duration="48000" />
+      <workItem from="1590075567392" duration="1320000" />
+      <workItem from="1590084467372" duration="800000" />
+      <workItem from="1590094592463" duration="414000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="907" y="494" key="#Notifications" timestamp="1589232788742">
+      <screen x="0" y="23" width="2048" height="1203" />
+    </state>
+    <state x="907" y="494" key="#Notifications/0.23.2048.1203@0.23.2048.1203" timestamp="1589232788742" />
+    <state x="495" y="285" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589651473666">
+      <screen x="0" y="23" width="2048" height="1204" />
+    </state>
+    <state x="495" y="285" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2048.1204@0.23.2048.1204" timestamp="1589651473666" />
+    <state x="843" y="336" key="#com.intellij.ide.util.MemberChooser" timestamp="1590076836011">
+      <screen x="0" y="23" width="2048" height="1204" />
+    </state>
+    <state x="843" y="336" key="#com.intellij.ide.util.MemberChooser/0.23.2048.1204@0.23.2048.1204" timestamp="1590076836011" />
+    <state width="1993" height="338" key="GridCell.Tab.0.bottom" timestamp="1589307759567">
+      <screen x="0" y="23" width="2048" height="1202" />
+    </state>
+    <state width="1993" height="338" key="GridCell.Tab.0.bottom/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759567" />
+    <state width="2006" height="351" key="GridCell.Tab.0.bottom/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167594" />
+    <state width="1993" height="338" key="GridCell.Tab.0.center" timestamp="1589307759566">
+      <screen x="0" y="23" width="2048" height="1202" />
+    </state>
+    <state width="1993" height="338" key="GridCell.Tab.0.center/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759566" />
+    <state width="2006" height="351" key="GridCell.Tab.0.center/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167593" />
+    <state width="1993" height="338" key="GridCell.Tab.0.left" timestamp="1589307759566">
+      <screen x="0" y="23" width="2048" height="1202" />
+    </state>
+    <state width="1993" height="338" key="GridCell.Tab.0.left/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759566" />
+    <state width="2006" height="351" key="GridCell.Tab.0.left/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167593" />
+    <state width="1993" height="338" key="GridCell.Tab.0.right" timestamp="1589307759567">
+      <screen x="0" y="23" width="2048" height="1202" />
+    </state>
+    <state width="1993" height="338" key="GridCell.Tab.0.right/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759567" />
+    <state width="2006" height="351" key="GridCell.Tab.0.right/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167594" />
+    <state x="525" y="263" key="SettingsEditor" timestamp="1590084498116">
+      <screen x="0" y="23" width="2048" height="1204" />
+    </state>
+    <state x="525" y="263" key="SettingsEditor/0.23.2048.1203@0.23.2048.1203" timestamp="1589292340215" />
+    <state x="525" y="263" key="SettingsEditor/0.23.2048.1204@0.23.2048.1204" timestamp="1590084498116" />
+    <state x="689" y="294" width="670" height="678" key="search.everywhere.popup" timestamp="1590085067348">
+      <screen x="0" y="23" width="2048" height="1204" />
+    </state>
+    <state x="689" y="294" width="670" height="676" key="search.everywhere.popup/0.23.2048.1202@0.23.2048.1202" timestamp="1589305908431" />
+    <state x="689" y="294" width="670" height="678" key="search.everywhere.popup/0.23.2048.1204@0.23.2048.1204" timestamp="1590085067348" />
+  </component>
+</project>

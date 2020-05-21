@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f00f4d8d-aed8-4de0-b484-2b5998a06e16" name="Default Changelist" comment="" />
+    <list default="true" id="f00f4d8d-aed8-4de0-b484-2b5998a06e16" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Z3.java" beforeDir="false" afterPath="$PROJECT_DIR$/Z3.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,6 +109,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589232751601</updated>
       <workItem from="1589232754152" duration="9283000" />
+      <workItem from="1589651427753" duration="48000" />
     </task>
     <servers />
   </component>
@@ -122,12 +126,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="907" y="494" key="#Notifications" timestamp="1589232788742">
       <screen x="0" y="23" width="2048" height="1203" />
     </state>
     <state x="907" y="494" key="#Notifications/0.23.2048.1203@0.23.2048.1203" timestamp="1589232788742" />
+    <state x="495" y="285" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589651473666">
+      <screen x="0" y="23" width="2048" height="1204" />
+    </state>
+    <state x="495" y="285" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.2048.1204@0.23.2048.1204" timestamp="1589651473666" />
     <state width="1993" height="338" key="GridCell.Tab.0.bottom" timestamp="1589307759567">
       <screen x="0" y="23" width="2048" height="1202" />
     </state>

@@ -28,6 +28,7 @@ public class Z3 {
 */
 
         // TODO: final stream composition in task: source -> buffer -> map -> async -> map -> async -> runWith -> thenRun
+        Strins s = s1 = "0";
         Source.range(1, 10)
                 .buffer(3, OverflowStrategy.dropHead())
                 .map(val -> {
