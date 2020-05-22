@@ -11,7 +11,7 @@ public class Shop {
         CompletableFuture<Integer> completableFuture = new CompletableFuture<>();
         Executors.newCachedThreadPool().submit(() -> {
             int waiting = abs(new Random().nextInt()) %  400 + 100;
-            // System.out.println("Czas oczekiwania sklepu " + waiting + " ms");
+            System.out.println("Czas oczekiwania sklepu " + waiting + " ms");
             Thread.sleep(waiting);
             completableFuture.complete(abs(new Random().nextInt() % 10) +  1);
             return null;

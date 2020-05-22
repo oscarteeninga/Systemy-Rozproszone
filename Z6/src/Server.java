@@ -53,7 +53,7 @@ public class Server extends AbstractLoggingActor {
             }
 
             public int getPrice() {
-                // System.out.println(price1 + " " + price2);
+                System.out.println(price1 + " " + price2);
                 return Math.min(price1, price2);
             }
         }
@@ -76,7 +76,7 @@ public class Server extends AbstractLoggingActor {
 
         Executors.newCachedThreadPool().submit(() -> {
             try {
-                Thread.sleep(280);
+                Thread.sleep(295);
                 if (prices.checkAnyGotten()) {
                     price.complete(prices.getPrice());
                 }
