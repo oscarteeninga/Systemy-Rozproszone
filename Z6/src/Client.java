@@ -2,10 +2,8 @@ import akka.actor.AbstractLoggingActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-import java.sql.Time;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
 
 public class Client extends AbstractLoggingActor {
 

@@ -20,38 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00f4d8d-aed8-4de0-b484-2b5998a06e16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Z6.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Z6.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Z1_MathActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/Z1_MathActor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/.idea/libraries/libs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/AkkaLab.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/aeron-client-1.27.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/aeron-driver-1.27.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/agrona-1.4.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/akka-actor_2.13-2.6.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/akka-cluster_2.13-2.6.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/akka-protobuf-v3_2.13-2.6.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/akka-remote_2.13-2.6.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/akka-slf4j_2.13-2.6.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/akka-stream_2.13-2.6.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/config-1.4.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/reactive-streams-1.0.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/scala-java8-compat_2.13-0.9.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/scala-library-2.13.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/libs/scala-parser-combinators_2.13-1.1.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/local_app.conf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/AkkaLab/remote_app.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Shop.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +124,7 @@
       <workItem from="1590084467372" duration="800000" />
       <workItem from="1590094592463" duration="2857000" />
       <workItem from="1590099261909" duration="6664000" />
-      <workItem from="1590143445793" duration="4576000" />
+      <workItem from="1590143445793" duration="9712000" />
     </task>
     <servers />
   </component>
@@ -193,43 +165,43 @@
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state x="843" y="336" key="#com.intellij.ide.util.MemberChooser/0.23.2048.1204@0.23.2048.1204" timestamp="1590109020035" />
-    <state width="1462" height="343" key="GridCell.Tab.0.bottom" timestamp="1590151400791">
+    <state width="1462" height="343" key="GridCell.Tab.0.bottom" timestamp="1590160481450">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state width="1993" height="338" key="GridCell.Tab.0.bottom/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759567" />
     <state width="2006" height="351" key="GridCell.Tab.0.bottom/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167594" />
-    <state width="1462" height="343" key="GridCell.Tab.0.bottom/0.23.2048.1204@0.23.2048.1204" timestamp="1590151400791" />
-    <state width="1462" height="343" key="GridCell.Tab.0.center" timestamp="1590151400790">
+    <state width="1462" height="343" key="GridCell.Tab.0.bottom/0.23.2048.1204@0.23.2048.1204" timestamp="1590160481450" />
+    <state width="1462" height="343" key="GridCell.Tab.0.center" timestamp="1590160481450">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state width="1993" height="338" key="GridCell.Tab.0.center/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759566" />
     <state width="2006" height="351" key="GridCell.Tab.0.center/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167593" />
-    <state width="1462" height="343" key="GridCell.Tab.0.center/0.23.2048.1204@0.23.2048.1204" timestamp="1590151400790" />
-    <state width="1462" height="343" key="GridCell.Tab.0.left" timestamp="1590151400790">
+    <state width="1462" height="343" key="GridCell.Tab.0.center/0.23.2048.1204@0.23.2048.1204" timestamp="1590160481450" />
+    <state width="1462" height="343" key="GridCell.Tab.0.left" timestamp="1590160481449">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state width="1993" height="338" key="GridCell.Tab.0.left/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759566" />
     <state width="2006" height="351" key="GridCell.Tab.0.left/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167593" />
-    <state width="1462" height="343" key="GridCell.Tab.0.left/0.23.2048.1204@0.23.2048.1204" timestamp="1590151400790" />
-    <state width="1462" height="343" key="GridCell.Tab.0.right" timestamp="1590151400791">
+    <state width="1462" height="343" key="GridCell.Tab.0.left/0.23.2048.1204@0.23.2048.1204" timestamp="1590160481449" />
+    <state width="1462" height="343" key="GridCell.Tab.0.right" timestamp="1590160481450">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state width="1993" height="338" key="GridCell.Tab.0.right/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759567" />
     <state width="2006" height="351" key="GridCell.Tab.0.right/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167594" />
-    <state width="1462" height="343" key="GridCell.Tab.0.right/0.23.2048.1204@0.23.2048.1204" timestamp="1590151400791" />
-    <state x="525" y="263" key="SettingsEditor" timestamp="1590099499838">
+    <state width="1462" height="343" key="GridCell.Tab.0.right/0.23.2048.1204@0.23.2048.1204" timestamp="1590160481450" />
+    <state x="529" y="221" key="SettingsEditor" timestamp="1590159707330">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state x="525" y="263" key="SettingsEditor/0.23.2048.1203@0.23.2048.1203" timestamp="1589292340215" />
-    <state x="525" y="263" key="SettingsEditor/0.23.2048.1204@0.23.2048.1204" timestamp="1590099499838" />
+    <state x="529" y="221" key="SettingsEditor/0.23.2048.1204@0.23.2048.1204" timestamp="1590159707330" />
     <state x="664" y="286" key="new project wizard" timestamp="1590099287277">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state x="664" y="286" key="new project wizard/0.23.2048.1204@0.23.2048.1204" timestamp="1590099287277" />
-    <state x="689" y="294" width="670" height="678" key="search.everywhere.popup" timestamp="1590085067348">
+    <state x="689" y="294" width="670" height="678" key="search.everywhere.popup" timestamp="1590160470004">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state x="689" y="294" width="670" height="676" key="search.everywhere.popup/0.23.2048.1202@0.23.2048.1202" timestamp="1589305908431" />
-    <state x="689" y="294" width="670" height="678" key="search.everywhere.popup/0.23.2048.1204@0.23.2048.1204" timestamp="1590085067348" />
+    <state x="689" y="294" width="670" height="678" key="search.everywhere.popup/0.23.2048.1204@0.23.2048.1204" timestamp="1590160470004" />
   </component>
 </project>
