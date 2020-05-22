@@ -12,7 +12,6 @@ public class Z1_MathActor extends AbstractActor {
     // for logging
     private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
-    // must be implemented -> creates initial behaviour
     @Override
     public AbstractActor.Receive createReceive() {
         return receiveBuilder()
