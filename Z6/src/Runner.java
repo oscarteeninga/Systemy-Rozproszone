@@ -18,14 +18,18 @@ public class Runner {
             System.out.print(client + ", ");
         }
         System.out.println("");
+        Database.getInstance();
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             String line = br.readLine();
             if (line.equals("q")) {
                 break;
+            } else if (line.equals("all")) {
+                Database.getInstance().showAll();
+            } else {
+                actor.tell(line.split(":"), ActorRef.noSender());
             }
-            actor.tell(line.split(":"), ActorRef.noSender());
         }
 
         system.terminate();

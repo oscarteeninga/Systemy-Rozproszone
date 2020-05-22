@@ -19,18 +19,18 @@ public class Client extends AbstractLoggingActor {
                 .match(Future.class, f -> {
                     try {
                         Integer price = (Integer) f.get(300, TimeUnit.MILLISECONDS);
-                        showPrice(price);
+                        log.info("Klient otrzymał cenę " + price);
+                        System.out.println("Cena to " + price);
                     } catch (Exception e) {
                         log.info("Klient nie otrzymał ceny");
                         System.out.println("Cena nieznana");
                     }
                 })
+                .match(Server.CountRequest.class, r -> {
+                    int count = r.count.get() + 1;
+                    System.out.println("Liczba zapytań: " + count);
+                })
                 .matchAny(o -> log.info("Niezrozumiały komunikat!"))
                 .build();
-    }
-
-    private void showPrice(Integer price) {
-        log.info("Klient otrzymał cenę " + price);
-        System.out.println("Cena to " + price);
     }
 }

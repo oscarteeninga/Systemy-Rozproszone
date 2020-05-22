@@ -4,7 +4,6 @@ import akka.event.LoggingAdapter;
 import akka.japi.pf.DeciderBuilder;
 import scala.concurrent.duration.Duration;
 
-import java.util.Random;
 import java.util.concurrent.*;
 
 import static akka.actor.SupervisorStrategy.restart;
@@ -15,13 +14,18 @@ public class Server extends AbstractLoggingActor {
 
     static private String[] clients = {"client1", "client2", "client3"};
 
+    class CountRequest {
+        CompletableFuture<Integer> count = new CompletableFuture<>();
+    }
+
     @Override
     public Receive createReceive() {
         return receiveBuilder()
                 .match(String.class, s -> {
-                    Future price = getPrice();
                     log.info("Serwer otrzymał zapytanie o cenę " + s);
-                    getSender().tell(price, getSelf());
+                    getSender().tell(getPrice(), getSelf());
+                    getSender().tell(getQuestionCount(s), getSelf());
+                    logToDatabase(s);
                 })
                 .match(String[].class, s -> {
                     context().child(s[0]).get().tell(s[1],getSelf());
@@ -37,6 +41,26 @@ public class Server extends AbstractLoggingActor {
         }
     }
 
+    private CountRequest getQuestionCount(String question) {
+        CountRequest countRequest = new CountRequest();
+        Executors.newCachedThreadPool().submit(() -> {
+            try {
+                countRequest.count.complete(Database.getInstance().getQuestionCount(question));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        return countRequest;
+    }
+
+    private void logToDatabase(String question) {
+        Executors.newCachedThreadPool().submit(() -> {
+            try {
+                Database.getInstance().increase(question);
+            } catch (Exception e) {}
+        });
+    }
+
     static public String[] getClients() {
         return clients;
     }
@@ -45,8 +69,8 @@ public class Server extends AbstractLoggingActor {
         CompletableFuture<Integer> price = new CompletableFuture<>();
 
         class Prices {
-            int price1 = 11;
-            int price2 = 11;
+            volatile int price1 = 11;
+            volatile int price2 = 11;
 
             public boolean checkAnyGotten() {
                 return price1 + price2 < 22;
@@ -59,18 +83,16 @@ public class Server extends AbstractLoggingActor {
         }
 
         Prices prices = new Prices();
-        Future price1 = Shop.genPrice();
-        Future price2 = Shop.genPrice();
 
         Executors.newCachedThreadPool().submit(() -> {
             try {
-                prices.price1 = (int) price1.get();
+                prices.price1 = (int) Shop.genPrice().get();
             } catch (Exception e) {}
         });
 
         Executors.newCachedThreadPool().submit(() -> {
             try {
-                prices.price2 = (int) price2.get();
+                prices.price2 = (int) Shop.genPrice().get();
             } catch (Exception e) {}
         });
 
@@ -87,8 +109,6 @@ public class Server extends AbstractLoggingActor {
         return price;
     }
 
-
-
     private static SupervisorStrategy strategy
             = new OneForOneStrategy(10, Duration.create("1 minute"), DeciderBuilder.
             match(IllegalArgumentException.class, o -> restart()).
@@ -99,5 +119,4 @@ public class Server extends AbstractLoggingActor {
     public SupervisorStrategy supervisorStrategy() {
         return strategy;
     }
-
 }
