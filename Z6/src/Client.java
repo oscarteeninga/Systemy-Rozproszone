@@ -2,7 +2,7 @@ import akka.actor.AbstractLoggingActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 
-import java.util.concurrent.Future;
+import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class Client extends AbstractLoggingActor {
@@ -16,19 +16,25 @@ public class Client extends AbstractLoggingActor {
                     log.info("Klient wysłał zapytanie produkt " + s);
                     getSender().tell(s, getSelf());
                 })
-                .match(Future.class, f -> {
+                .match(Server.PriceMessage.class, msg -> {
+                    Executors.newCachedThreadPool().submit(() -> {
+                        try {
+                            Integer price = msg.price.get(300, TimeUnit.MILLISECONDS);
+                            // log.info("Klient otrzymał cenę " + price);
+                            System.out.println("Cena to " + price);
+                        } catch (Exception e) {
+                            // log.info("Klient nie otrzymał ceny");
+                            System.out.println("Cena nieznana");
+                        }
+                    });
                     try {
-                        Integer price = (Integer) f.get(300, TimeUnit.MILLISECONDS);
-                        log.info("Klient otrzymał cenę " + price);
-                        System.out.println("Cena to " + price);
+                        Integer count = msg.count.get(300, TimeUnit.MILLISECONDS);
+                        // log.info("Liczba zapytań to " + count);
+                        System.out.println("Liczba zapytań to " + count);
                     } catch (Exception e) {
-                        log.info("Klient nie otrzymał ceny");
-                        System.out.println("Cena nieznana");
+                        // log.info("Nie udało się uzyskać liczby zapytań");
+                        System.out.println("Nieznana liczba zapytań");
                     }
-                })
-                .match(Server.CountRequest.class, r -> {
-                    int count = r.count.get() + 1;
-                    System.out.println("Liczba zapytań: " + count);
                 })
                 .matchAny(o -> log.info("Niezrozumiały komunikat!"))
                 .build();

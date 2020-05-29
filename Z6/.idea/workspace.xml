@@ -20,11 +20,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f00f4d8d-aed8-4de0-b484-2b5998a06e16" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/libs/sqlite-jdbc-3.31.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logs.db" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Database.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Z2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/projectIceFramework.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/thriftCompiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Z2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Z2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Z2/src/services/rest/WeatherGetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Z2/src/services/rest/WeatherGetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/0b3bb4c1-e345-4ff9-a7bb-41796e4a15bc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/eb48527a-0ac9-4411-9f0a-00b43589392e.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Z1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Z1_DivideWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Z1_MathActor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Z1_MultiplyWorker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs.db" beforeDir="false" afterPath="$PROJECT_DIR$/logs.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Runner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Runner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server.java" afterDir="false" />
@@ -129,24 +138,28 @@
       <workItem from="1590084467372" duration="800000" />
       <workItem from="1590094592463" duration="2857000" />
       <workItem from="1590099261909" duration="6664000" />
-      <workItem from="1590143445793" duration="18937000" />
+      <workItem from="1590143445793" duration="19200000" />
+      <workItem from="1590508752538" duration="266000" />
+      <workItem from="1590708042107" duration="775000" />
+      <workItem from="1590745960157" duration="2304000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -171,30 +184,34 @@
       <screen x="0" y="23" width="2048" height="1204" />
     </state>
     <state x="843" y="336" key="#com.intellij.ide.util.MemberChooser/0.23.2048.1204@0.23.2048.1204" timestamp="1590109020035" />
-    <state width="2006" height="340" key="GridCell.Tab.0.bottom" timestamp="1590178823555">
-      <screen x="0" y="23" width="2048" height="1204" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1590748517099">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1590748517099" />
     <state width="1993" height="338" key="GridCell.Tab.0.bottom/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759567" />
     <state width="2006" height="351" key="GridCell.Tab.0.bottom/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167594" />
-    <state width="2006" height="340" key="GridCell.Tab.0.bottom/0.23.2048.1204@0.23.2048.1204" timestamp="1590178823555" />
-    <state width="2006" height="340" key="GridCell.Tab.0.center" timestamp="1590178823554">
-      <screen x="0" y="23" width="2048" height="1204" />
+    <state width="1158" height="340" key="GridCell.Tab.0.bottom/0.23.2048.1204@0.23.2048.1204" timestamp="1590708513006" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1590748517098">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1590748517098" />
     <state width="1993" height="338" key="GridCell.Tab.0.center/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759566" />
     <state width="2006" height="351" key="GridCell.Tab.0.center/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167593" />
-    <state width="2006" height="340" key="GridCell.Tab.0.center/0.23.2048.1204@0.23.2048.1204" timestamp="1590178823554" />
-    <state width="2006" height="340" key="GridCell.Tab.0.left" timestamp="1590178823554">
-      <screen x="0" y="23" width="2048" height="1204" />
+    <state width="1158" height="340" key="GridCell.Tab.0.center/0.23.2048.1204@0.23.2048.1204" timestamp="1590708513005" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1590748517097">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1590748517097" />
     <state width="1993" height="338" key="GridCell.Tab.0.left/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759566" />
     <state width="2006" height="351" key="GridCell.Tab.0.left/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167593" />
-    <state width="2006" height="340" key="GridCell.Tab.0.left/0.23.2048.1204@0.23.2048.1204" timestamp="1590178823554" />
-    <state width="2006" height="340" key="GridCell.Tab.0.right" timestamp="1590178823554">
-      <screen x="0" y="23" width="2048" height="1204" />
+    <state width="1158" height="340" key="GridCell.Tab.0.left/0.23.2048.1204@0.23.2048.1204" timestamp="1590708513005" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1590748517098">
+      <screen x="0" y="0" width="1680" height="1050" />
     </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1590748517098" />
     <state width="1993" height="338" key="GridCell.Tab.0.right/0.23.2048.1202@0.23.2048.1202" timestamp="1589307759567" />
     <state width="2006" height="351" key="GridCell.Tab.0.right/0.23.2048.1203@0.23.2048.1203" timestamp="1589305167594" />
-    <state width="2006" height="340" key="GridCell.Tab.0.right/0.23.2048.1204@0.23.2048.1204" timestamp="1590178823554" />
+    <state width="1158" height="340" key="GridCell.Tab.0.right/0.23.2048.1204@0.23.2048.1204" timestamp="1590708513005" />
     <state width="243" height="457" key="HiddenNamespacesPopup" timestamp="1590163742094">
       <screen x="0" y="23" width="2048" height="1204" />
     </state>

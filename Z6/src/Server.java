@@ -4,6 +4,8 @@ import akka.event.LoggingAdapter;
 import akka.japi.pf.DeciderBuilder;
 import scala.concurrent.duration.Duration;
 
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.concurrent.*;
 
 import static akka.actor.SupervisorStrategy.restart;
@@ -12,10 +14,11 @@ public class Server extends AbstractLoggingActor {
 
     private final LoggingAdapter log = Logging.getLogger(getContext().getSystem(), this);
 
-    static private String[] clients = {"client1", "client2", "client3"};
+    static private ArrayList<String> clients = new ArrayList<>();
 
-    class CountRequest {
-        CompletableFuture<Integer> count = new CompletableFuture<>();
+    class PriceMessage {
+        Future<Integer> price;
+        Future<Integer> count;
     }
 
     @Override
@@ -23,12 +26,19 @@ public class Server extends AbstractLoggingActor {
         return receiveBuilder()
                 .match(String.class, s -> {
                     log.info("Serwer otrzymał zapytanie o cenę " + s);
-                    getSender().tell(getPrice(), getSelf());
-                    getSender().tell(getQuestionCount(s), getSelf());
+                    PriceMessage priceMessage = new PriceMessage();
+                    priceMessage.price = getPrice();
+                    priceMessage.count = getQuestionCount(s);
+                    getSender().tell(priceMessage, getSelf());
                     logToDatabase(s);
                 })
                 .match(String[].class, s -> {
-                    context().child(s[0]).get().tell(s[1],getSelf());
+                    if (s[0].equals("add")) {
+                        addClient(s[1]);
+                        log.info(s[1] + " dodany");
+                    } else {
+                        context().child(s[0]).get().tell(s[1],getSelf());
+                    }
                 })
                 .matchAny(o -> log.warning("Indentyfikujemy produkty po nazwie"))
                 .build();
@@ -41,11 +51,16 @@ public class Server extends AbstractLoggingActor {
         }
     }
 
-    private CountRequest getQuestionCount(String question) {
-        CountRequest countRequest = new CountRequest();
+    public void addClient(String client) {
+        context().actorOf(Props.create(Client.class), client);
+        clients.add(client);
+    }
+
+    private CompletableFuture getQuestionCount(String question) {
+        CompletableFuture countRequest = new CompletableFuture();
         Executors.newCachedThreadPool().submit(() -> {
             try {
-                countRequest.count.complete(Database.getInstance().getQuestionCount(question));
+                countRequest.complete(Database.getInstance().getQuestionCount(question));
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -61,7 +76,7 @@ public class Server extends AbstractLoggingActor {
         });
     }
 
-    static public String[] getClients() {
+    static public ArrayList<String> getClients() {
         return clients;
     }
 
